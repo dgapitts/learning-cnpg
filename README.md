@@ -6,7 +6,7 @@
 Note, you can do this `brew`, but honestly I prefer to do this mostly manually (with the except of `libpq`). 
 
 Installing `kubectl`, as per the [kubernetes.io kubectl-macos install doco](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/)
-
+```
   503  echo "$(cat kubectl.sha256)  kubectl" | shasum -a 256 --check
   504   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/amd64/kubectl.sha256"
   505  echo "$(cat kubectl.sha256)  kubectl" | shasum -a 256 --check
@@ -14,7 +14,7 @@ Installing `kubectl`, as per the [kubernetes.io kubectl-macos install doco](http
   507  sudo mv ./kubectl /usr/local/bin/kubectl
   508  kubectl version --client
   509  kubectl version --client --output=yaml
-
+```
 
 Installing `kind` (and `docker desktop`), as per the [kind.sigs.k8s.io installation doco](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
 
