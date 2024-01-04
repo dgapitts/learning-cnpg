@@ -49,6 +49,40 @@ source ~/.bash_profile
 ```
 
 
+## Setup `cnpg` kubectl plugin (via krew) 
+
+
+As per the [kubectl-plugin doco here](https://cloudnative-pg.io/documentation/1.22/kubectl-plugin/) I used `krew`
+
+```
+kubectl krew install cnpg
+```
+i.e. I first had to install krew
+
+```
+(
+  set -x; cd "$(mktemp -d)" &&
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
+)
+```
+
+one gotcha here is that I need to update my `~\.bash_profile` and not  `~\.bashrc`
+
+```
+Add the $HOME/.krew/bin directory to your PATH environment variable. To do this, update your .bashrc or .zshrc file and append the following line:
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+and restart your shell.
+```
+
+
+
 
 
 
