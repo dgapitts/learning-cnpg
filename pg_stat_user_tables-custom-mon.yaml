@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-monitoring
+  labels:
+    cnpg.io/reload: ""
+data:
+  custom-queries: |
+    pg_stat_user_tables:
+      query: "select relname, n_tup_ins, n_tup_upd, n_tup_del, n_tup_hot_upd, n_live_tup, n_dead_tup from pg_stat_user_tables"
+
+      metrics:
+        - relname:
+            usage: "LABEL"
+            description: "Name of this table"
+        - n_tup_ins:
+            usage: "COUNTER"
+            description: "Number of rows inserted"
+        - n_tup_upd:
+            usage: "COUNTER"
+            description: "Number of rows updated"
+        - n_tup_del:
+            usage: "COUNTER"
+            description: "Number of rows deleted"
+        - n_tup_hot_upd:
+            usage: "COUNTER"
+            description: "Number of rows HOT updated (i.e., with no separate index update required)"
+        - n_live_tup:
+            usage: "GAUGE"
+            description: "Estimated number of live rows"
+        - n_dead_tup:
+            usage: "GAUGE"
+            description: "Estimated number of dead rows"
