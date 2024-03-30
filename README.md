@@ -6,3 +6,4 @@
 * [Wrapper script check_logs](docs/03-wrapper-script-for-checking-logs.md)
 * [First steps with pgbench and psql](docs/04-First-steps-with-pgbench-and-psql.md)
 * [cnpg plugin status](docs/05-cnpg-plugin.md)
+* [expose pg services](docs/06-expose_pg_services.md)
